@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <p class="logo"><a href="home.html">Quiz Time</a></p>
+        <ul class="menu">
+            <li>
+                <select name="chapters" class="chapter-select">
+                    <option value="" disabled>Chapters</option>                    
+                    <option value="chapter1">Chapter 1</option>
+                    <option value="chapter2" selected>Chapter 2</option>
+                    <option value="chapter3">Chapter 3</option>
+                </select>
+                
+            </li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <input type="search" class="search-bar" placeholder="Search Lessons">
+
+        
+    </nav>
+    <main class="chapter-main">
+        <div class="chapter-container">
+            <h2 class="chapter-heading">Chapter 2</h2>
+            <p class="chapter-text">-Chpater 2 is about....</p>
+                <div class="buttons">
+                    <button class="chapterbtn" id="startQuiz">
+                        Quiz?
+                    </button>
+                    <button class="chapterbutton" id="openPDFs">
+                        PDFs?
+                    </button>
+                </div>
+
+                <div class="pdf-popup" id="pdf-popup">
+                    <div class="pdf-content">
+                        <span class="close-btn" id="close-btn">&times;</span>
+                        <iframe id="pdf-frame" src="" frameborder="0"></iframe>
+                    </div>
+                </div>
+                
+                <!-- quiz section -->
+                <div class="quiz-popup" id="quiz-popup">
+                    <div class="quiz-content">
+                        <span class="close-quiz" id="close-quiz">&times;</span>
+
+                        <div class="quiz-question">
+                            <h3 id="question-text">what is...</h3>
+                            <div class="options-container">
+                                <button class="option">option a</button>
+                                <button class="option">option b</button>
+                                <button class="option">option c</button>
+                                <button class="option">option d</button>
+                            </div>
+                            <button id="next-btn">next</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </main>
+    <script src="JavaScript/chapter.js"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #4a5568;
+  --secondary: #d5dbe1;
+  --accent: #63b3ed;
+  --background: #f6f7fb;
+  --text: #2d3748;
+  --font: "Poppins", sans-serif;
+  --hover: #1477bdce;
+  --color: #696a6a;
+}
+
+
+nav {
+  width: 95.2%;
+  height: 10vh;
+  background-color: var(--accent);
+  color: var(--text);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 30px;
+}
+
+.logo {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+  font-family: var(--font);
+}
+
+.logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu li {
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  font-family: var(--font);
+  margin-left: 10px;
+}
+.menu li a:hover {
+  color: var(--hover);
+}
+
+.menu li:hover {
+  transform: scale(1.06);
+}
+
+.chapter-select {
+  background-color: var(--accent); /* Same as navbar */
+  color: white; /* White text for better contrast */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-left: 10px;
+  font-family: var(--font);
+}
+
+.chapter-select:hover {
+  color: var(--hover);
+}
+
+.search-bar {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  width: 40%;
+  margin-left: 45px;
+  font-family: var(--font);
+  transition: all 0.5s ease-in-out;
+}
+.search-bar:hover {
+  transform: scale(1.05);
+}
+/* nav CSS ended */
+
+.home-main {
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 70vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.welcome {
+  margin: 5px 0px;
+  font-size: 2.3rem;
+  font-family: var(--font);
+}
+.quote {
+  margin: 10px 0;
+  padding: 0 20px;
+  font-style: italic;
+  text-align: justify;
+  color: var(--color);
+}
+.letsgo {
+  border: none;
+  border-radius: 90px;
+  margin-top: 50px;
+  padding: 26px 50px;
+  font-size: 1.3rem;
+  background-color: var(--accent);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.letsgo:hover {
+  background-color: var(--hover);
+  transform: scale(1.05);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+.span {
+  font-style: italic;
+  margin-top: 5px;
+  color: #696a6a;
+  display: none;
+  animation: fadeIn 0.5s ease-in-out backwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* main CSS ended */
+
+.features {
+  width: 100%;
+  height: 65vh;
+  margin-top: 50px;
+  text-align: center;
+}
+.features h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-family: var(--font);
+  animation: animation1 1s ease-in-out backwards;
+}
+@keyframes animation1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 270px;
+  border-radius: 10px;
+  height: 290px;
+  font-family: var(--font);
+  color: #2d3748;
+  background-color: var(--background);
+  box-shadow: 5px 5px 10px 5px rgb(177, 176, 176);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card img {
+  width: 270px;
+  height: 190px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 8px 8px 15px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* chapter CSS started: */
+.chapter-main {
+  background-color: var(--background);
+  width: 100%;
+  height: 50vh;
+  padding-top: 50px;
+}
+.chapter-heading {
+  font-family: var(--font);
+  font-size: 2rem;
+}
+.chapter-text {
+  font-family: var(--font);
+  margin-top: 10px;
+  color: var(--color);
+}
+
+.chapter-container {
+  text-align: center;
+  margin-top: 50px;
+}
+.chapterbutton {
+  border: none;
+  border-radius: 90px;
+  margin-top: 50px;
+  padding: 26px 50px;
+  font-size: 1.3rem;
+  background-color: var(--accent);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.chapterbutton:hover {
+  background-color: var(--hover);
+  text-decoration: underline;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chapterbtn {
+  border: none;
+  border-radius: 90px;
+  margin-top: 50px;
+  padding: 26px 50px;
+  font-size: 1.3rem;
+  background-color: rgba(68, 197, 68, 0.817);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.chapterbtn:hover {
+  background-color: rgba(47, 168, 47, 0.817);
+  text-decoration: underline;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.pdf-popup {
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(111, 111, 111, 0.224);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.pdf-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.pdf-content {
+  width: 80%;
+  height: 90%;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+}
+
+.pdf-popup .pdf-content {
+  transform: scale(1);
+}
+
+.pdf-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-btn {
+  position: absolute;
+  top: 33px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #d1dbed;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #7c7f84;
+}
+
+/* quiz CSS: */
+.quiz-popup {
+  display: none;
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.quiz-popup.show {
+  opacity: 1;
+  display: flex;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.quiz-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#question-text {
+  font-size: 1.6rem;
+  font-family: var(--font);
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  margin: 10px 0 10px 0;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #e3f5ff;
+  border-color: #33b5e5;
+  transform: scale(1.04);
+}
+.option.correct{
+  background-color: rgba(38, 217, 38, 0.55);
+}
+.option.wrong{
+  background-color: rgba(197, 74, 74, 0.603);
+}
+
+.close-quiz {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 1.9rem;
+  font-weight: bolder;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-quiz:hover {
+  color: #7c7f84;
+}
+
+#next-btn {
+  border: none;
+  border-radius: 90px;
+  margin-top: 20px;
+  padding: 20px 40px;
+  font-size: 1.3rem;
+  background-color: #77d2f3;
+  color: white;
+  transition: all 0.3s ease;
+}
+#next-btn:hover {
+  background-color: #33b5e5;
+  text-decoration: underline;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.section2{
+  margin: 20px 20px;
+}
+
+.container2{
+  display: flex;
+  justify-content: space-around;
+}
+
+.left{
+  width: 45%;
+  height: 50vh;
+  font-weight: bold;
+  text-align: center;
+  align-content: center;
+  color: var(--font);
+}
+
+.left h1{
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.left p{
+  color: var(--color);
+}
+
+
+.right{
+  width: 45%;
+  height: 50vh;
+  text-align: center;
+}
+
+.right img{
+  width: 70%;
+  height: 62vh;
+}
+
+.left2{
+  width: 45%;
+  height: 50vh;
+  text-align: center;
+}
+.left2 img{
+  width: 70%;
+  height: 55vh;
+}
+
+.right2{
+  width: 45%;
+  height: 50vh;
+  font-weight: bold;
+  text-align: center;
+  align-content: center;
+  color: var(--font);
+}
+.right2 h1{
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.right2 p{
+  color: var(--color);
+}
+
+.line{
+  width: 100%;
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);  ;
+  height: 7px;
+  margin: 40px 0;
+  border: none;
+  border-radius: 9px;
+}
