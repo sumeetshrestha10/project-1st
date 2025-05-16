@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 1</title>
+    <title>Chapter 2</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
@@ -17,11 +17,11 @@
             <li>
                 <select name="chapters" class="chapter-select">
                     <option value="" disabled>Chapters</option>                    
-                    <option value="chapter1" selected>Chapter 1</option>
+                    <option value="chapter1">Chapter 1</option>
                     <option value="chapter2">Chapter 2</option>
                     <option value="chapter3">Chapter 3</option>
                     <option value="chapter4">Chapter 4</option>
-                    <option value="chapter5">Chapter 5</option>
+                    <option value="chapter5" selected>Chapter 5</option>
                     <option value="chapter6">Chapter 6</option>
                     <option value="chapter7">Chapter 7</option>
                     <option value="chapter8">Chapter 8</option>
@@ -36,8 +36,8 @@
         
     </nav>
         <div class="chapter-container">
-            <h2 class="chapter-heading">Introduction to Object-Oriented Programming</h2>
-            <p class="chapter-text">-Chpater 1 is about....</p>
+            <h2 class="chapter-heading">Chapter 5</h2>
+            <p class="chapter-text">-Chpater 5 is about....</p>
                 <div class="buttons">
                     <button class="chapterbtn" id="startQuiz">
                         Quiz?
@@ -53,7 +53,7 @@
                         <iframe id="pdf-frame" src="" frameborder="0"></iframe>
                     </div>
                 </div>
-
+                
                 <!-- quiz section -->
                 <div class="quiz-popup" id="quiz-popup">
                     <div class="quiz-content">
@@ -62,17 +62,17 @@
                         <div class="quiz-question">
                             <h3 id="question-text">what is...</h3>
                             <div class="options-container">
-                                
+                                <button class="option">option a</button>
+                                <button class="option">option b</button>
+                                <button class="option">option c</button>
+                                <button class="option">option d</button>
                             </div>
-                            <div id="quiz-score" class="hidden"></div>
-
-                            <button id="next-btn">Next</button>
+                             <div id="quiz-score" class="hidden"></div>
+                            <button id="next-btn">next</button>
                         </div>
                     </div>
                 </div>
         </div>
-
-        
     </main>
     <script src="JavaScript/chapter.js"></script>
 </body>

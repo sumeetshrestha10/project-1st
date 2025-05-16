@@ -1,6 +1,7 @@
 
 const chapterSelect = document.querySelector(".chapter-select");
 //for button in the chapters
+let correctAnswerCount = 0;
 
 if (chapterSelect) {
   chapterSelect.addEventListener("change", function () {
@@ -76,12 +77,15 @@ openQuizBtn.addEventListener("click", () => {
   currentQuestionIndex = 0;
   quizPopup.classList.add("show");
   showQuestion();
+  correctAnswerCount = 0;
+  document.getElementById("quiz-score").classList.add("hidden");
 });
 
 closeQuizBtn.addEventListener("click", () => {
   quizPopup.classList.remove("show");
   questionContainer.classList.remove("show");
   currentQuestionIndex = 0;
+  document.getElementById("quiz-score").classList.add("hidden");
 });
 
 function showQuestion() {
@@ -102,12 +106,19 @@ function showQuestion() {
       optionContainer.appendChild(optionBtn);
 
       optionBtn.addEventListener("click", () => {
-        checkAnswer(option, currentQuestion.answer);
+        HandleOptionClick(option, currentQuestion.answer);
       });
     });
     questionContainer.classList.remove("hidden");
     optionContainer.classList.add("show");
   }, 100);
+}
+
+function HandleOptionClick(selectedOption, correctAnswer){
+  if(selectedOption === correctAnswer){
+    correctAnswerCount++;
+  }
+  checkAnswer(selectedOption,correctAnswer);
 }
 
 function checkAnswer(selectedOption, Answer){
@@ -122,7 +133,23 @@ function checkAnswer(selectedOption, Answer){
       optionBtn.classList.add("wrong");
     }
   });
+   const scoreDisplay = document.getElementById("quiz-score");
+  scoreDisplay.textContent = `${correctAnswerCount} out of ${questions.length}`;
+  scoreDisplay.classList.remove("hidden");
 
+  // scoreDisplay.classList.remove("score-correct","score-wrong");
+
+  // if(selectedOption === correctAnswer){
+  //   scoreDisplay.classList.add("score-correct");
+  // }else{
+  //   scoreDisplay.classList.add("score-wrong");
+  // }
+
+  // scoreDisplay.classList.add("score-animation");
+  // setTimeout(() => {
+  //   scoreDisplay.classList.remove("score-animation");
+  // }, 500);
+    
   setTimeout(() => {
     nextbtn.click();
     }, 1000);
@@ -134,9 +161,31 @@ nextbtn.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     showQuestion();
   } else {
-    alert(` quiz has ended`);
-    quizPopup.classList.remove("show");
-    questionContainer.classList.remove("show");
-    currentQuestionIndex = 0;
+    finishQuiz();
   }
 });
+
+function finishQuiz(){
+  const scoreDisplay = document.getElementById("quiz-score");
+  const completeSound = document.getElementById("quiz-complete-sound");
+
+
+  scoreDisplay.textContent += " — Quiz Completed!";
+  scoreDisplay.classList.remove("hidden");
+  scoreDisplay.classList.add("quiz-complete-anim");
+
+
+  setTimeout(() => {
+    quizPopup.classList.remove("show");
+    questionContainer.classList.remove("show");
+
+    
+    scoreDisplay.textContent = "";
+    scoreDisplay.classList.add("hidden");
+    scoreDisplay.classList.remove("quiz-complete-anim");
+
+    correctAnswerCount = 0;
+    currentQuestionIndex = 0;
+  }, 2000);
+}
+

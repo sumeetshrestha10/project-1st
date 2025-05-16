@@ -19,15 +19,9 @@ letsGoBtn.addEventListener("click", () => {
     } else {
         warningSpan.style.display = "block";
     };
-    if (selectValue === "chapter1") {
-        window.location.href = "chapter1.html";
+    if (selectValue) {
+        window.location.href = selectValue + ".html";
     } 
-    else if (selectValue === "chapter2") {
-        window.location.href = "chapter2.html";
-    } 
-    else if (selectValue === "chapter3") {
-        window.location.href = "chapter3.html";
-    }
 });
 
 

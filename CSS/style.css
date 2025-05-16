@@ -15,15 +15,21 @@
 }
 
 nav {
-  width: auto;
-  height: 10vh;
-  background-color: var(--accent);
-  color: var(--text);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 5px 30px;
-  position: relative;
+    width: 67%;
+    border: none;
+    border-radius: 140px;
+    height: 10vh;
+    background-color: var(--accent);
+    color: var(--text);
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: 8px 8px 15px 8px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    padding: 5px 30px;
+    position: sticky;
+    margin: auto;
+    top: 3px;
+    right: 14%;
 }
 
 .logo {
@@ -98,7 +104,7 @@ nav {
   background-size: cover;
   background-repeat: no-repeat;
   width: auto;
-  height: 70vh;
+  height: 80vh;
 }
 
 .container {
@@ -220,7 +226,6 @@ nav {
   color: white;
   width: 100%;
   height: 70vh;
-  padding-top: 50px;
 }
 .chapter-heading {
   font-family: var(--font);
@@ -405,7 +410,8 @@ nav {
   cursor: pointer;
 }
 
-.option:hover {
+.option:hover,
+.option:focus {
   background-color: #e3f5ff;
   border-color: #33b5e5;
   transform: scale(1.04);
@@ -448,6 +454,55 @@ nav {
   transform: scale(1.05);
   cursor: pointer;
 }
+
+#quiz-score{
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+#quiz-score.hidden{
+  display: none;
+}
+#finish-quiz-btn{
+  margin-top: 15px;
+  padding: 10px  20px ;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#finish-quiz-btn.hidden{
+  display: none;
+}
+.score-correct{
+  color: green;
+}
+.score-wrong{
+  color: red;
+}
+.score-animation{
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+@keyframes pulse-fade {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.quiz-complete-anim {
+  animation: pulse-fade 1s ease-in-out infinite;
+  color: gold;
+  font-weight: bold;
+}
+
 
 .section2 {
   margin: 20px 20px;
@@ -523,131 +578,165 @@ nav {
 
 /* RESPONSIVENESS CSS STARTS */
 
-@media (max-width: 600px) {
-  .home-main {
-    height: auto;
-  }
-  .welcome {
-    font-size: 1.7rem;
-  }
+/* For extra small devices (phones, 320px and up) */
+@media (min-width: 320px) and (max-width: 480px) {
   nav {
-    flex-direction: wrap;
-    height: auto;
-    padding: 10px;
-    justify-content: space-evenly;
+    width: 90%;
+    height: 3vh;
+    right: 0;
+  }
+
+  .logo {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+
+  .chapter-select{
+    font-size: xx-small;
+  }
+  .menu {
+    width: 100%;
+    margin: 0;
+    font-size: xx-small;
+  }
+
+  .menu li {
+    width: 100%;
+    text-align: center;
   }
 
   .search-bar {
     width: 90%;
-    margin-left: 0;
-    margin-top: 10px;
+    margin: 0;
+    font-size: 9px;
+    padding: 8px 4px;
   }
 
-  .features {
+  .home-main {
     height: auto;
+    padding: 20px 0;
+  }
+
+  .welcome {
+    font-size: 1.5rem;
+    padding: 0 15px;
+    text-align: center;
+  }
+
+  .letsgo {
+    padding: 15px 30px;
+    font-size: 1.1rem;
   }
 
   .feature-cards {
+    padding: 0 15px;
+  }
+
+  .card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .card img {
+    width: 100%;
+  }
+
+  .features{
+    height: auto;
+  }
+  .section2{
+    height: auto;
+  }
+  .container2{
     flex-direction: column;
   }
-
-  .section2,
-  .container2 {
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-  }
-
-  .left {
-    order: 2;
-  }
-  .right {
-    order: 1;
-  }
-
   .left,
   .right,
   .left2,
-  .right2 {
+  .right2{
     width: 90%;
     height: auto;
   }
 
-  .right img,
-  .left2 img {
-    width: 100%;
-    height: auto;
+  .right2{
+    order: 1;
+    margin-bottom: 30px;
+  }
+  .left2{
+    order: 2;
   }
 
-  .quiz-content {
+  .chapter-heading {
+    font-size: 1.6rem;
+  }
+
+  .buttons {
+    padding: 0 15px;
+  }
+
+  .chapterbtn, .chapterbutton {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+  }
+
+  .pdf-content {
     width: 95%;
+    height: 80%;
   }
 }
 
 @media (max-width: 768px) {
-  .home-main{
-    height: 40vh;
-  }
-  
   nav {
-    flex-wrap: wrap;
-    height: auto;
+    height: 7vh;
+    align-items: center;
     padding: 10px;
-    justify-content: space-evenly;
   }
-  
-  .search-bar {
-    width: 60%;
-    margin-left: 0;
-    margin-top: 10px;
+
+  .logo{
+    font-size: 1rem;
+    margin: 0 0 0 10px;
   }
-  
-  .features {
-    height: auto;
-  }
-  
-  .feature-cards {
-    justify-content: center;
-  }
-  
-  .card {
-    margin-bottom: 20px;
-    align-content: center;
-  }
-  
-  .card.show{
-    width: 60%;
-    margin-top: 20px;
-  }
-  .container2 {
-    flex-direction: column;
+  .menu {
     align-items: center;
   }
 
-  .left,
-  .right,
-  .left2,
-  .right2 {
-    width: 90%;
-    height: auto;
+  .menu li {
+    font-size: xx-small;
+  }
+
+  .search-bar {
+    width: 80%;
+    margin-right: 20px;
+  }
+
+  .chapter-select {
+    font-size: xx-small;
+  }
+
+  .welcome {
+    font-size: 1.5rem;
     text-align: center;
   }
 
-  .left{
-    order: 2;
+  .letsgo {
+    font-size: 1rem;
+    padding: 10px 25px;
   }
 
-  .right{
-    order: 1;
-  }
-
-  .right img,
-  .left2 img {
-    width: 100%;
+  .features{
     height: auto;
   }
+  .feature-cards {
+    flex-wrap: wrap;
+    align-items: center;
+  }
 
-  .quiz-content {
+  .card {
+   margin-bottom: 20px;
+  }
+
+  .left, .right, .left2, .right2 {
     width: 90%;
   }
 }
