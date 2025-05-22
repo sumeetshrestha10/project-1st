@@ -6,6 +6,7 @@
     <title>Chapter 3</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 
@@ -29,9 +30,13 @@
                 
             </li>
             <li><a href="about.html">About</a></li>
+            <li><a href="progress.html">Progress</a></li>
         </ul>
-        
-        <input type="search" class="search-bar" placeholder="Search Lessons">
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="search" class="search-bar" placeholder="Search Lessons">
+            <div class="search-suggestions"></div>
+        </div>
 
         
     </nav>
@@ -74,6 +79,68 @@
                 </div>
         </div>
     </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>About Learnify</h3>
+                <p>Your ultimate platform for interactive learning and self-assessment. We provide comprehensive study materials and engaging quizzes to enhance your learning experience.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ShubhashreeCollege/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/shubhashreecollege/?hl=en" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/shubhashreecollege" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@ShubhashreeCollege" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="chapter1.html">Start Learning</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Chapters Section -->
+            <div class="footer-section">
+                <h3>Chapters</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter1.html">Introduction to OOP</a></li>
+                    <li><a href="chapter2.html">Classes and Objects</a></li>
+                    <li><a href="chapter3.html">Inheritance</a></li>
+                    <li><a href="chapter4.html">Polymorphism</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-phone">📞</i>
+                    <p>+979 9790000</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope">📧</i>
+                    <p>info@learnify.com</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt">📍</i>
+                    <p>Shubhashree College, Baneshwor, Kathmandu</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Learnify. All rights reserved. | Designed with 💙 for learners</p>
+        </div>
+    </footer>
+    
+    <script src="JavaScript/progress.js"></script>
     <script src="JavaScript/chapter.js"></script>
 </body>
 </html>

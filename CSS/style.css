@@ -16,20 +16,26 @@
 
 nav {
     width: 67%;
+    max-width: 1200px;
     border: none;
     border-radius: 140px;
     height: 10vh;
-    background-color: var(--accent);
+    background-color: rgba(66, 125, 166, 0.9);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     color: var(--text);
     display: flex;
     justify-content: space-evenly;
     box-shadow: 8px 8px 15px 8px rgba(0, 0, 0, 0.2);
     align-items: center;
     padding: 5px 30px;
-    position: sticky;
+    position: fixed;
     margin: auto;
     top: 3px;
-    right: 14%;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
 }
 
 .logo {
@@ -48,6 +54,7 @@ nav {
 .menu {
   list-style: none;
   display: flex;
+  gap: 5px;
   align-items: center;
 }
 
@@ -76,7 +83,6 @@ nav {
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  margin-left: 10px;
   font-family: var(--font);
   cursor: pointer;
 }
@@ -85,26 +91,106 @@ nav {
   color: var(--hover);
 }
 
-.search-bar {
-  padding: 10px 20px;
-  border-radius: 5px;
-  border: none;
+.search-container {
+  position: relative;
   width: 40%;
-  margin-left: 45px;
+  margin-left: 5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.search-bar {
+  width: 100%;
+  height: 30px;
+  padding: 0 20px 0 40px;
+  border-radius: 25px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
   font-family: var(--font);
-  transition: all 0.5s ease-in-out;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: all 0.3s ease;
 }
+
+.search-bar:focus {
+  outline: none;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar::placeholder {
+  color: #9f9f9f;
+  opacity: 0.7;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  pointer-events: none;
+  z-index: 11;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
 .search-bar:hover {
-  transform: scale(1.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Simplified suggestions dropdown */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  margin-top: 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.search-suggestions.active {
+  display: block;
+}
+
+.suggestion-item {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: var(--background);
+}
+
+.suggestion-item:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.suggestion-item:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
 /* nav CSS ended */
 
 .home-main {
-  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: auto;
+  background: 
+    linear-gradient(rgba(15, 32, 39, 0.85), rgba(63, 116, 138, 0.941)), /* Semi-transparent gradient overlay */
+    url('../Images/Shubhashree-Logo-PNG-1.png'); /* Using an existing image */
+  background-size: contain; /* Show full image without stretching */
+  background-position: center;
+  background-repeat: no-repeat; /* Allow image to repeat if needed */
+  width: 100%;
   height: 80vh;
+  position: relative;
+  margin-top: 0;
 }
 
 .container {
@@ -116,35 +202,124 @@ nav {
 
 .welcome {
   margin: 5px 0px;
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-family: var(--font);
   color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  animation: fadeInDown 1s ease-in-out;
 }
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .quote {
-  margin: 10px 0;
-  padding: 0 20px;
+  margin: 20px 0;
+  padding: 0 40px;
   font-style: italic;
-  text-align: justify;
-  color: var(--color);
+  text-align: center;
+  color: #e0e0e0;
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  animation: fadeIn 1.5s ease-in-out backwards;
+  animation-delay: 0.5s;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .letsgo {
   border: none;
   border-radius: 90px;
-  margin-top: 50px;
-  padding: 26px 50px;
+  margin-top: 30px;
+  padding: 20px 45px;
   font-size: 1.3rem;
   background-color: var(--accent);
   color: white;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.letsgo:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: -1;
 }
 
 .letsgo:hover {
   background-color: var(--hover);
   transform: scale(1.05);
   cursor: pointer;
-  text-decoration: underline;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.letsgo:hover:before {
+  width: 100%;
+}
+
+.letsgo a {
+  text-decoration: none;
+  color: white; /* Ensuring the link text stays white */
+}
+
+#startQuiz a{
+  text-decoration: none;
+  color: white;
+}
+
+.progressbtn{
+  border: none;
+  border-radius: 90px;
+  margin-top: 30px;
+  padding: 20px 45px;
+  font-size: 1.3rem;
+  background-color: var(--accent);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.progressbtn a{
+  text-decoration: none;
+  color: white;
+}
+
+.progressbtn:hover{
+  background-color: var(--hover);
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.progressbtn:hover:before {
+  width: 100%;
+}
 .span {
   font-style: italic;
   margin-top: 5px;
@@ -188,19 +363,29 @@ nav {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .card {
   width: 270px;
-  border-radius: 10px;
-  height: 290px;
+  border-radius: 12px;
+  height: 320px;
   font-family: var(--font);
   color: #2d3748;
   background-color: var(--background);
-  box-shadow: 5px 5px 10px 5px rgb(177, 176, 176);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease-out;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .card.show {
@@ -209,80 +394,212 @@ nav {
 }
 
 .card img {
-  width: 270px;
-  height: 190px;
-  margin-bottom: 30px;
-  border-radius: 10px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover img {
   transform: scale(1.05);
-  box-shadow: 8px 8px 15px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .emoji {
+  animation: bounce 0.6s ease infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-8px);
+  }
+}
+
+.card:hover h3 {
+  color: var(--accent);
+}
+
+.card-content {
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  background: linear-gradient(to bottom, rgba(246, 247, 251, 0.9), rgba(246, 247, 251, 1));
+}
+
+.card h3 {
+  padding: 0 10px;
+  margin: 2px 0 10px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--color);
+  text-align: center;
+  padding: 0 10px;
+  margin-top: 5px;
+}
+
+.emoji {
+  position: absolute;
+  top: 160px;
+  left: 20px;
+  background-color: var(--accent);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
 }
 
 /* chapter CSS started: */
 .chapter-main {
-  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-  color: white;
+  background: 
+    linear-gradient(rgba(15, 32, 39, 0.85), rgba(44, 83, 100, 0.85)), /* Semi-transparent gradient overlay */
+    url('../Images/Shubhashree-Logo-PNG-1.png'); /* Using an existing image */
+  background-size: contain; /* Show full image without stretching */
+  background-position: center;
+  background-repeat: no-repeat; /* Allow image to repeat if needed */
   width: 100%;
-  height: 70vh;
-}
-.chapter-heading {
-  font-family: var(--font);
-  font-size: 2rem;
-}
-.chapter-text {
-  font-family: var(--font);
-  margin-top: 10px;
-  color: var(--color);
+  height: 80vh;
+  position: relative;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .chapter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 50px;
-}
-.chapterbutton {
-  border: none;
-  border-radius: 90px;
-  margin-top: 50px;
-  padding: 26px 50px;
-  font-size: 1.3rem;
-  background-color: var(--accent);
-  color: white;
-  transition: all 0.3s ease;
+  padding-top: 100px;
 }
 
-.chapterbutton:hover {
-  background-color: var(--hover);
-  text-decoration: underline;
-  transform: scale(1.05);
-  cursor: pointer;
+.chapter-heading {
+  font-family: var(--font);
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.chapter-text {
+  font-family: var(--font);
+  margin: 20px 0 30px 0;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  max-width: 700px;
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out backwards;
+  animation-delay: 0.3s;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 80px;
+  gap: 15px;
+  margin-top: 40px;
+  animation: fadeIn 1.5s ease-in-out backwards;
+  animation-delay: 0.6s;
+}
+
+.chapterbutton {
+  border: none;
+  border-radius: 90px;
+  margin: 10px;
+  padding: 20px 45px;
+  font-size: 1.3rem;
+  background-color: var(--accent);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  
+}
+
+.chapterbutton:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.chapterbutton:hover {
+  background-color: var(--hover);
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.chapterbutton:hover:before {
+  width: 100%;
 }
 
 .chapterbtn {
   border: none;
   border-radius: 90px;
-  margin-top: 50px;
-  padding: 26px 50px;
-  font-size: 1.3rem;
+  margin: 10px;
+  padding: 16px 30px;
+  font-size: 1.2rem;
   background-color: rgba(68, 197, 68, 0.817);
   color: white;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.chapterbtn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  z-index: -1;
 }
 
 .chapterbtn:hover {
   background-color: rgba(47, 168, 47, 0.817);
-  text-decoration: underline;
   transform: scale(1.05);
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.chapterbtn:hover:before {
+  width: 100%;
 }
 
 .pdf-popup {
@@ -375,6 +692,10 @@ nav {
   max-width: 600px;
   position: relative;
   animation: slideUp 0.4s ease;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes slideUp {
@@ -397,12 +718,17 @@ nav {
 .options-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .option {
+  width: 90%;
+  max-width: 500px;
+  margin: 10px 0;
+  text-align: center;
   padding: 12px 20px;
   font-size: 1.1rem;
-  margin: 10px 0 10px 0;
   border: 2px solid #eee;
   border-radius: 8px;
   background-color: #f9f9f9;
@@ -503,9 +829,18 @@ nav {
   font-weight: bold;
 }
 
+.quiz-question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .section2 {
-  margin: 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ align-items: center;
 }
 
 .container2 {
@@ -534,6 +869,7 @@ nav {
   width: 45%;
   height: 50vh;
   text-align: center;
+  margin-left: 80px;
 }
 
 .right img {
@@ -554,6 +890,7 @@ nav {
 .right2 {
   width: 45%;
   height: 50vh;
+  margin-right: 80px;
   font-weight: bold;
   text-align: center;
   align-content: center;
@@ -568,7 +905,7 @@ nav {
 }
 
 .line {
-  width: 100%;
+  width: 90%;
   background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
   height: 7px;
   margin: 40px 0;
@@ -581,35 +918,56 @@ nav {
 /* For extra small devices (phones, 320px and up) */
 @media (min-width: 320px) and (max-width: 480px) {
   nav {
-    width: 90%;
-    height: 3vh;
-    right: 0;
+    width: 70%;
+    justify-content: space-evenly;
   }
 
   .logo {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-right: 0;
+    order: 1;
   }
 
-  .chapter-select{
-    font-size: xx-small;
+  .chapter-select {
+    font-size: 0.85rem;
+    padding: 5px 8px;
   }
+  
   .menu {
-    width: 100%;
-    margin: 0;
-    font-size: xx-small;
+    order: 2;
+    width: auto;
+    justify-content: center;
+    flex-wrap: nowrap;
   }
 
   .menu li {
-    width: 100%;
+    width: auto;
     text-align: center;
+    margin: 0;
+  }
+
+  .menu li a {
+    margin-left: 0;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .search-container {
+    width: 50%;
+    height: 35px;
+    order: 3;
   }
 
   .search-bar {
-    width: 90%;
-    margin: 0;
-    font-size: 9px;
-    padding: 8px 4px;
+    width: 100%;
+    height: 35px;
+    font-size: 0.85rem;
+    padding: 0 10px 0 30px;
+  }
+
+  .search-icon {
+    left: 8px;
+    font-size: 12px;
   }
 
   .home-main {
@@ -618,27 +976,49 @@ nav {
   }
 
   .welcome {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: 0 15px;
     text-align: center;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+    margin: 0 15px 10px 15px;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+    padding: 0 20px;
   }
 
   .letsgo {
     padding: 15px 30px;
     font-size: 1.1rem;
+    margin-top: 20px;
   }
 
   .feature-cards {
     padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
   }
 
   .card {
-    width: 100%;
-    margin-bottom: 20px;
+    width: 90%;
+    max-width: 300px;
+    margin-bottom: 25px;
+    height: auto;
+    min-height: 300px;
   }
 
   .card img {
-    width: 100%;
+    height: 170px;
+  }
+  
+  .emoji {
+    top: 150px;
   }
 
   .features{
@@ -666,16 +1046,28 @@ nav {
     order: 2;
   }
 
-  .chapter-heading {
-    font-size: 1.6rem;
+  .chapter-main {
+    height: auto;
+    padding: 100px 0 40px 0;
   }
-
+  
+  .chapter-heading {
+    font-size: 1.8rem;
+    padding: 0 15px;
+  }
+  
+  .chapter-text {
+    font-size: 0.9rem;
+    padding: 0 20px;
+  }
+  
   .buttons {
     padding: 0 15px;
+    gap: 10px;
   }
 
   .chapterbtn, .chapterbutton {
-    width: 100%;
+    width: 80%;
     padding: 15px 20px;
     font-size: 1.1rem;
   }
@@ -686,57 +1078,1388 @@ nav {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
   nav {
-    height: 7vh;
+    width: 70%;
+    /* height: auto; */
+    min-height: 30px;
+    padding: 10px 20px;
+    /* flex-wrap: wrap; */
+    justify-content: space-evenly;
     align-items: center;
-    padding: 10px;
+    align-content: center;
+    
   }
 
   .logo{
-    font-size: 1rem;
-    margin: 0 0 0 10px;
+    font-size: 1.6rem;
+    margin: 0;
+    order: 1;
   }
+  
   .menu {
-    align-items: center;
+    order: 2;
+    width: auto;
+    margin: 0;
+    justify-content: center;
+    /* gap: 20px; */
+    flex-wrap: nowrap;
   }
 
   .menu li {
-    font-size: xx-small;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .search-container {
+    width: 100%;
+    height: 38px;
+    order: 3;
   }
 
   .search-bar {
-    width: 80%;
-    margin-right: 20px;
+    width: 100%;
+    height: 38px;
+    font-size: 0.9rem;
+    padding: 0 15px 0 35px;
   }
 
+  .search-icon {
+    left: 10px;
+    font-size: 14px;
+  }
+  
   .chapter-select {
-    font-size: xx-small;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    margin-left: 5px;
   }
 
   .welcome {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
   }
 
+  .welcome-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .quote {
+    padding: 0 30px;
+  }
+
   .letsgo {
-    font-size: 1rem;
-    padding: 10px 25px;
+    font-size: 1.2rem;
+    padding: 15px 35px;
   }
 
   .features{
     height: auto;
+    padding-bottom: 40px;
   }
   .feature-cards {
     flex-wrap: wrap;
-    align-items: center;
+    justify-content: center;
+    gap: 25px;
   }
 
   .card {
-   margin-bottom: 20px;
+    margin-bottom: 20px;
+    width: 45%;
+    min-width: 250px;
   }
 
   .left, .right, .left2, .right2 {
     width: 90%;
   }
+
+  .chapter-main {
+    /* height: auto; */
+    min-height: 70vh;
+    padding: 100px 0 40px 0;
+  }
+  
+  .chapter-heading {
+    font-size: 2rem;
+    padding: 0 15px;
+  }
+  
+  .chapter-text {
+    padding: 0 20px;
+  }
+  
+  .buttons {
+    gap: 10px;
+  }
+  
+  .chapterbtn, .chapterbutton {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Medium devices (tablets, 769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  nav {
+    width: 67%;
+    /* height: auto; */
+    min-height: 70px;
+    padding: 10px 25px;
+    justify-content: space-evenly;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .menu {
+    gap: 5px;
+    flex-wrap: nowrap;
+    display: flex;
+    position: relative;
+    left: 0;
+  }
+
+  .menu li a {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .search-container {
+    width: 30%;
+    margin-left: 15px;
+  }
+}
+
+/* Large devices (desktops, 1025px and up) */
+@media (min-width: 1025px) {
+  nav {
+    width: 67%;
+    max-width: 1200px;
+    height: 10vh;
+    padding: 5px 30px;
+    justify-content: space-evenly;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .menu {
+    gap: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .search-container {
+    width: 30%;
+  }
+}
+
+/* Teacher Dashboard Styles */
+.teacher-main {
+  background: 
+    linear-gradient(rgba(15, 32, 39, 0.85), rgba(44, 83, 100, 0.85)), /* Semi-transparent gradient overlay */
+    url('../Images/Shubhashree-Logo-PNG-1.png'); /* Using an existing image */
+  background-size: contain; /* Show full image without stretching */
+  background-position: center;
+  background-repeat: no-repeat; /* Allow image to repeat if needed */
+  width: 100%;
+  height: 35vh;
+  position: relative;
+  margin-top: 0;
+}
+.teacher-dashboard {
+    max-width: 1200px;
+    margin-bottom: 55px;
+    padding: 0 20px;
+}
+
+.teacher-dashboard h1 {
+    color: white;
+    font-family: var(--font);
+    font-size: 2.5rem;
+    margin-top: 15vh;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.upload-section, .manage-pdfs {
+    background-color: var(--background);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section h2, .manage-pdfs h2 {
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.upload-form .form-group {
+    margin-bottom: 20px;
+}
+
+.upload-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text);
+    font-family: var(--font);
+    font-weight: 500;
+}
+
+.upload-form input[type="text"],
+.upload-form select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--secondary);
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.upload-form input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px dashed var(--secondary);
+    border-radius: 8px;
+    font-family: var(--font);
+    cursor: pointer;
+}
+
+.upload-form input[type="text"]:focus,
+.upload-form select:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+.upload-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: var(--font);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background-color: var(--hover);
+    transform: translateY(-2px);
+}
+
+.pdf-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.pdf-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.pdf-item:hover {
+    transform: translateY(-5px);
+}
+
+.pdf-item h3 {
+    color: var(--text);
+    font-family: var(--font);
+    margin-bottom: 10px;
+}
+
+.pdf-item p {
+    color: var(--color);
+    font-family: var(--font);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.pdf-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.pdf-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn {
+    background-color: var(--accent);
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.view-btn:hover, .delete-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Responsive styles for teacher dashboard */
+@media (max-width: 768px) {
+    .teacher-dashboard {
+        padding: 0 15px;
+    }
+
+    .teacher-dashboard h1 {
+        font-size: 2rem;
+    }
+
+    .upload-section, .manage-pdfs {
+        padding: 20px;
+    }
+
+    .pdf-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer Styles */
+.footer {
+    background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    padding: 60px 0 20px 0;
+    font-family: var(--font);
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent);
+}
+
+.footer-section p {
+    color: #b9b9b9;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #b9b9b9;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.footer-links i {
+    font-size: 14px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+.social-links a.facebook:hover {
+    background-color: #1877F2; /* Facebook blue */
+}
+
+.social-links a.twitter:hover {
+    background-color: #1DA1F2; /* Twitter blue */
+}
+
+.social-links a.instagram:hover {
+    background-color: #E1306C; /* Instagram pink/red */
+}
+
+.social-links a.linkedin:hover {
+    background-color: #0A66C2; /* LinkedIn blue */
+}
+
+.social-links a.youtube:hover {
+    background-color: #FF0000; /* YouTube red */
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #b9b9b9;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: #b9b9b9;
+    font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .contact-info {
+        justify-content: center;
+    }
+
+    .footer-links a {
+        justify-content: center;
+    }
+}
+
+/* About Page Styles */
+.about-hero {
+  background: 
+    linear-gradient(rgba(15, 32, 39, 0.85), rgba(44, 83, 100, 0.85)), /* Semi-transparent gradient overlay */
+    url('../Images/Shubhashree-Logo-PNG-1.png'); /* Using an existing image */
+  background-size: contain; /* Show full image without stretching */
+  background-position: center;
+  background-repeat: no-repeat; /* Allow image to repeat if needed */
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.about-container {
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.about-heading {
+  font-size: 3rem;
+  color: white;
+  font-family: var(--font);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.about-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font);
+  animation: fadeIn 1.5s ease-in-out backwards;
+  animation-delay: 0.3s;
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.about-section {
+  margin-bottom: 80px;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  color: var(--text);
+  font-family: var(--font);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-section > p {
+  font-size: 1.1rem;
+  color: var(--color);
+  font-family: var(--font);
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+/* Mission Section */
+.mission-points {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.mission-item {
+  flex: 1;
+  min-width: 300px;
+  background-color: var(--background);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mission-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.mission-item h3 {
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 15px;
+}
+
+.mission-item p {
+  color: var(--color);
+  line-height: 1.5;
+}
+
+/* Story Section */
+.story-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.story-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.story-content h2 {
+  text-align: left;
+}
+
+.story-content p {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.story-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.story-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Approach Section */
+.approach-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.approach-item {
+  background-color: var(--background);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.approach-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.approach-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(66, 125, 166, 0.1);
+  font-family: var(--font);
+}
+
+.approach-item h3 {
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.approach-item p {
+  color: var(--color);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+/* Team Section */
+.team-intro {
+  margin-bottom: 40px;
+}
+
+.team-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.team-member {
+  width: 220px;
+  text-align: center;
+}
+
+.member-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px auto;
+  border: 4px solid var(--accent);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  color: var(--color);
+  font-style: italic;
+}
+
+/* CTA Section */
+.about-cta {
+  background: linear-gradient(to right, #427da6, #5ea7da);
+  border-radius: 16px;
+  padding: 60px 30px;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.about-cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.about-cta p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.about-cta-button {
+  display: inline-block;
+  background-color: white;
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.about-cta-button:hover {
+  background-color: transparent;
+  color: white;
+  transform: translateY(-5px);
+}
+
+/* Responsive styles for about page */
+@media (max-width: 768px) {
+  .about-hero {
+    height: 70vh;
+  }
+  
+  .about-heading {
+    font-size: 2.5rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+  }
+  
+  .mission-item, .approach-item {
+    min-width: 100%;
+  }
+  
+  .story-content, .story-image {
+    flex: 100%;
+  }
+  
+  .story-content h2 {
+    text-align: center;
+  }
+  
+  .story-content p {
+    text-align: center;
+  }
+  
+  .about-cta {
+    padding: 40px 20px;
+  }
+  
+  .about-cta h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    height: 30vh;
+  }
+  
+  .about-heading {
+    font-size: 2rem;
+  }
+  
+  .about-subtitle {
+    font-size: 1rem;
+  }
+  
+  .about-content {
+    padding: 40px 15px;
+  }
+  
+  .about-section {
+    margin-bottom: 60px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .team-member {
+    width: 160px;
+  }
+  
+  .member-image {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .about-cta h2 {
+    font-size: 1.6rem;
+  }
+  
+  .about-cta-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Teacher Nav Additions */
+
+.menu li a i {
+  margin-right: 5px;
+}
+
+.menu li a.active {
+  color: #f0f0f0;
+  font-weight: 600;
+  position: relative;
+}
+
+.menu li a.active:after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+
+.teacher-profile {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  color: white;
+}
+
+.teacher-name {
+  font-family: var(--font);
+  font-size: 0.9rem;
+  margin-right: 10px;
+}
+
+.logout-btn {
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  color: #ff6b6b;
+  transform: scale(1.1);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.breadcrumb {
+  max-width: 1200px;
+    padding: 10px 20px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 0.9rem;
+    position: relative;
+    margin-top: 0;
+    top: 40%;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--hover);
+}
+
+.breadcrumb .current {
+  color: white;
+  font-weight: 500;
+}
+
+.dashboard-nav {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard-tab {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-family: var(--font);
+  font-size: 1rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-tab:hover {
+  background-color: #e0e0e0;
+}
+
+.dashboard-tab.active {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Responsive adjustments for teacher nav */
+@media (max-width: 1024px) {
+  .teacher-profile {
+    margin-left: 10px;
+  }
+
+  .teacher-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+    z-index: 101;
+  }
+
+  .menu {
+    display: flex;
+    position: relative;
+    left: 0;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    flex-direction: row;
+    transition: all 0.3s ease;
+    order: 2;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .menu li {
+    margin: 5px 0;
+  }
+
+  .teacher-name {
+    display: none;
+  }
+
+  .dashboard-nav {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-tab {
+    flex: 1;
+    padding: 10px 15px;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .breadcrumb {
+    margin-top: 60px;
+    font-size: 0.8rem;
+  }
+
+  .dashboard-nav {
+    gap: 10px;
+  }
+
+  .dashboard-tab {
+    flex: 100%;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile menu animation */
+.mobile-menu-toggle span.active:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-menu-toggle span.active:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle span.active:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Add mobile-nav class styling */
+.mobile-nav {
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  transition: all 0.3s ease;
+}
+
+/* Search container and bar improvements */
+.search-container {
+  position: relative;
+  width: 40%;
+  /* margin-left: 45px; */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.search-bar {
+  width: 100%;
+  height: 30px;
+  padding: 0 20px 0 40px;
+  border-radius: 25px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font);
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+/* Enhance responsive styles to be even more adaptive */
+@media (max-width: 768px) {
+  .menu {
+    transition: all 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    width: 100%;
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo a {
+    transition: all 0.3s ease;
+  }
+}
+
+/* Small screens adjustments for the navigation bar */
+@media (max-width: 360px) {
+  nav {
+    width: 95%;
+    min-height: 50px;
+    padding: 8px 12px;
+    border-radius: 20px;
+  }
+  
+  .logo {
+    font-size: 1.3rem;
+  }
+  
+  .chapter-select {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+  
+  .search-container {
+    width: 35%;
+    height: 30px;
+  }
+  
+  .search-bar {
+    height: 30px;
+    font-size: 0.8rem;
+    padding: 0 8px 0 25px;
+  }
+  
+  .menu {
+    gap: 10px;
+  }
+  
+  .menu li a {
+    font-size: 0.85rem;
+  }
+}
+
+/* Smooth transition effects for navigation */
+nav, .menu, .logo, .search-container, .search-bar, .chapter-select {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Progress Tracker Styles */
+.progress-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 
+                0 1px 3px rgba(0, 0, 0, 0.08),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+
+.progress-container:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 
+                0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-container:active {
+    transform: scale(0.95);
+    transition: all 0.25s;
+}
+
+.progress-circle {
+    width: 48px;
+    height: 48px;
+    position: relative;
+}
+
+.progress-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+}
+
+.progress-circle circle {
+    fill: none;
+    stroke-width: 3.5;
+    transition: all 0.5s;
+}
+
+.progress-circle .bg {
+    stroke: #f0f0f0;
+    opacity: 0.6;
+}
+
+.progress-circle .progress {
+    stroke: var(--accent);
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    filter: drop-shadow(0 0 2px rgba(66, 125, 166, 0.4));
+}
+
+.progress-percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.progress-container:hover .progress-percentage {
+    font-size: 0.95rem;
+    color: var(--accent);
+}
+
+/* Pulse animation for low progress */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Apply pulse animation for progress under 30% */
+.progress-container[data-low-progress="true"] {
+    animation: pulse 2s infinite;
+}
+
+/* Only hide old bar elements inside the circular tracker */
+.progress-container .progress-bar,
+.progress-container .progress-fill,
+.progress-container .progress-text,
+.progress-container .last-visited {
+    display: none;
+}
+
+/* Restore and improve progress details page styles */
+.progress-details {
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto 0 auto;
+    padding: 20px 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chapter-progress {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 18px 24px 18px 24px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chapter-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chapter-progress-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.chapter-progress-status {
+    display: flex;
+    gap: 15px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+.status-complete {
+    background-color: #4CAF50;
+}
+.status-incomplete {
+    background-color: #F44336;
+}
+
+.chapter-quiz-score {
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+.quiz-score-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out;
+}
+
+.chapter-actions {
+    margin-top: 8px;
+}
+.chapter-actions .letsgo {
+    display: inline-block;
+    padding: 8px 22px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    margin: 0;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 6px rgba(66,125,166,0.08);
+}
+.chapter-actions .letsgo:hover {
+    background: var(--hover);
+    color: #fff;
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Responsive for progress details */
+@media (max-width: 600px) {
+    .progress-details {
+        padding: 10px 0 30px 0;
+    }
+    .chapter-progress {
+        padding: 12px 8px;
+    }
+    .chapter-progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
 }

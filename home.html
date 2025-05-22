@@ -6,11 +6,11 @@
     <title>Quiz Time</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 
 <body>
-    <main class="home-main">
     <nav>
         <p class="logo"><a href="home.html">Learnify</a></p>
         <ul class="menu">
@@ -29,23 +29,27 @@
                 
             </li>
             <li><a href="about.html">About</a></li>
+            <li><a href="progress.html">Progress</a></li>
         </ul>
-        
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
             <input type="search" class="search-bar" placeholder="Search Lessons">
+            <div class="search-suggestions"></div>
+        </div>
         
     </nav>
+    <main class="home-main">
         
         <div class="container">
             <svg width="100%" height="100%">
                
                 </svg>
 
-                <h1 class="welcome">Ready for some quiz?</h1>
+                <h1 class="welcome">Unlock Your Learning Potential</h1>
 
-
-                <p class="quote">"The best way to predict the future is to create it."
+                <p class="quote">"Education is not the learning of facts, but the training of the mind to think."
                     <br>
-                    -Abraham Lincoln.
+                    - Albert Einstein
                 </p>
 
             <button class="letsgo">Let's GO!</button>
@@ -56,40 +60,52 @@
 
     <section class="features">
         <h2>Features</h2>
-            <div class="feature-cards">
-                <div class="card">
-                    <img src="Images/card1.avif" alt="study image">
-                    <span class="emoji">📖</span>
+        <div class="feature-cards">
+            <div class="card">
+                <img src="Images/card1.avif" alt="study image">
+                <span class="emoji">📖</span>
+                <div class="card-content">
                     <h3>Direct access to any PDFs</h3>
-                </div>   
-                <div class="card">
-                    <img src="Images/card2.avif" alt="study image">
-                    <span class="emoji">🧠</span>
+                    <p>Access all your study materials with just one click</p>
+                </div>
+            </div>   
+            <div class="card">
+                <img src="Images/card2.avif" alt="study image">
+                <span class="emoji">🧠</span>
+                <div class="card-content">
                     <h3>Enhance your knowledge</h3>
-                </div>
-                <div class="card">
-                    <img src="Images/card3.avif" alt="study image">
-                    <span class="emoji">🏆</span>
-                    <h3>Track your progress</h3>
-                </div>
-                <div class="card">
-                    <img src="Images/card4.avif" alt="study image">
-                    <span class="emoji">⚡</span>
-                    <h3>Quick & Fun Learning</h3>
+                    <p>Learn new concepts through interactive content</p>
                 </div>
             </div>
+            <div class="card">
+                <img src="Images/card3.avif" alt="study image">
+                <span class="emoji">🏆</span>
+                <div class="card-content">
+                    <h3>Track your progress</h3>
+                    <p>Monitor your improvement with detailed analytics</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Images/card4.avif" alt="study image">
+                <span class="emoji">⚡</span>
+                <div class="card-content">
+                    <h3>Quick & Fun Learning</h3>
+                    <p>Enjoy learning with engaging and interactive quizzes</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <div class="line"></div>
     
     <section class="section2">
+        <div class="line"></div>
         <!-- first section -->
         <div class="container2">
             <div class="left">
                 <h1>Enhance your study sessions</h1>
                 <p>You can easily access your PDFs anytime you want!</p>
 
-                <button class="letsgo">Let's GO!</button>
+                <button class="letsgo"><a href="chapter1.html">Let's GO!</a></button>
                 <span class="span">Please select a chapter first!</span>
             </div>
             <div class="right">
@@ -109,7 +125,7 @@
                 <h1>Practice with our Quiz</h1>
                 <p>All the quizzes are related to each selected chapters.</p>
                 <button class="chapterbtn" id="startQuiz">
-                    Quiz?
+                    <a href="chapter1.html">Quiz?</a>
                 </button>
             </div>
         </div>
@@ -122,6 +138,9 @@
             <div class="left">
                 <h1>Track your progress</h1>
                 <p>You can easily access your PDFs anytime you want!</p>
+                <button class="progressbtn">
+                    <a href="progress.html">Progress?</a>
+                </button>
             </div>
             <div class="right">
                 <img src="Images/progress.webp" alt="studing images">
@@ -131,9 +150,66 @@
     </section>
 
     <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>About Learnify</h3>
+                <p>Your ultimate platform for interactive learning and self-assessment. We provide comprehensive study materials and engaging quizzes to enhance your learning experience.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ShubhashreeCollege/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/shubhashreecollege/?hl=en" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/shubhashreecollege" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@ShubhashreeCollege" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
 
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="chapter1.html">Start Learning</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
 
+            <!-- Chapters Section -->
+            <div class="footer-section">
+                <h3>Chapters</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter1.html">Introduction to OOP</a></li>
+                    <li><a href="chapter2.html">Classes and Objects</a></li>
+                    <li><a href="chapter3.html">Inheritance</a></li>
+                    <li><a href="chapter4.html">Polymorphism</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-phone">📞</i>
+                    <p>+979 9790000</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope">📧</i>
+                    <p>info@learnify.com</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt">📍</i>
+                    <p>Shubhashree College, Baneshwor, Kathmandu</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Learnify. All rights reserved. | Designed with 💙 for learners</p>
+        </div>
     </footer>
+
+    <script src="JavaScript/progress.js"></script>
     <script src="JavaScript/script.js" defer></script>    
 </body>
 </html>

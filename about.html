@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Learnify - Interactive Learning Platform</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -16,15 +18,197 @@
                     <option value="chapter1">Chapter 1</option>
                     <option value="chapter2">Chapter 2</option>
                     <option value="chapter3">Chapter 3</option>
+                    <option value="chapter4">Chapter 4</option>
+                    <option value="chapter5">Chapter 5</option>
+                    <option value="chapter6">Chapter 6</option>
+                    <option value="chapter7">Chapter 7</option>
+                    <option value="chapter8">Chapter 8</option>
                 </select>
-                
             </li>
             <li><a href="about.html">About</a></li>
+            <li><a href="progress.html">Progress</a></li>
         </ul>
         
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
             <input type="search" class="search-bar" placeholder="Search Lessons">
-        
+            <div class="search-suggestions"></div>
+        </div>
     </nav>
+    
+    <!-- About Hero Section -->
+    <main class="about-hero">
+        <div class="about-container">
+            <h1 class="about-heading">About Learnify</h1>
+            <p class="about-subtitle">Transforming education through interactive learning</p>
+        </div>
+    </main>
+    
+    <!-- About Content Section -->
+    <section class="about-content">
+        <div class="about-section">
+            <h2>Our Mission</h2>
+            <p>At Learnify, we believe that education is the most powerful tool to change the world. Our mission is to make learning accessible, engaging, and effective for everyone. We strive to create an environment where students can explore complex concepts through interactive lessons, practice their knowledge with targeted quizzes, and track their progress over time.</p>
+            
+            <div class="mission-points">
+                <div class="mission-item">
+                    <i class="fas fa-book-reader mission-icon"></i>
+                    <h3>Accessible Learning</h3>
+                    <p>Making quality educational content available to everyone, anywhere, anytime</p>
+                </div>
+                <div class="mission-item">
+                    <i class="fas fa-users mission-icon"></i>
+                    <h3>Interactive Experience</h3>
+                    <p>Creating engaging content that encourages active participation</p>
+                </div>
+                <div class="mission-item">
+                    <i class="fas fa-chart-line mission-icon"></i>
+                    <h3>Measurable Progress</h3>
+                    <p>Helping students track their improvement and stay motivated</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section story-section">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Learnify started as a small project at Shubhashree College in Baneshwor, Kathmandu. A group of passionate educators and developers came together with a shared vision: to transform how students engage with educational content.</p>
+                <p>What began as a simple collection of PDFs and quizzes has evolved into a comprehensive learning platform that helps students master complex subjects through interactive content. Today, we're proud to serve students across the region, providing them with the tools they need to succeed in their educational journey.</p>
+            </div>
+            <div class="story-image">
+                <img src="Images/about-story.jpg" alt="Learning environment at Learnify">
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <h2>Our Approach</h2>
+            <div class="approach-container">
+                <div class="approach-item">
+                    <div class="approach-number">01</div>
+                    <h3>Comprehensive Resources</h3>
+                    <p>We provide detailed study materials in PDF format, covering everything from basic concepts to advanced topics.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-number">02</div>
+                    <h3>Interactive Quizzes</h3>
+                    <p>Our quizzes are designed to test your understanding and reinforce key concepts through active recall.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-number">03</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Monitor your improvement over time with detailed analytics and personalized feedback.</p>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-number">04</div>
+                    <h3>Continuous Improvement</h3>
+                    <p>We regularly update our content based on student feedback and the latest educational research.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section team-section">
+            <h2>Meet Our Team</h2>
+            <p class="team-intro">Our dedicated team of educators, developers, and designers work together to create the best learning experience for you.</p>
+            
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="Images/atit.jpg" alt="Team Member">
+                    </div>
+                    <h3>Atit Shrestha</h3>
+                    <p>Founder & Lead Educator</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="Images/Sumeet.png" alt="Team Member">
+                    </div>
+                    <h3>Sumeet Shrestha</h3>
+                    <p>Web Developer</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="Images/pratik.jpg" alt="Team Member">
+                    </div>
+                    <h3>Pratik Khanal</h3>
+                    <p>Web Developer</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="Images/anil sir.jpg" alt="Team Member">
+                    </div>
+                        <h3>Anil Kumar Panta</h3>
+                    <p>Supervisor</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-cta">
+            <h2>Ready to start your learning journey?</h2>
+            <p>Explore our chapters and enhance your knowledge today</p>
+            <a href="chapter1.html" class="about-cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>About Learnify</h3>
+                <p>Your ultimate platform for interactive learning and self-assessment. We provide comprehensive study materials and engaging quizzes to enhance your learning experience.</p>
+                <div class="social-links">
+                    <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="chapter1.html">Start Learning</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Chapters Section -->
+            <div class="footer-section">
+                <h3>Chapters</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter1.html">Introduction to OOP</a></li>
+                    <li><a href="chapter2.html">Classes and Objects</a></li>
+                    <li><a href="chapter3.html">Inheritance</a></li>
+                    <li><a href="chapter4.html">Polymorphism</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-phone">📞</i>
+                    <p>+9 88 7789879</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope">📧</i>
+                    <p>info@learnify.com</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt">📍</i>
+                    <p>Shubhashree College, Baneshwor, Kathmandu</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Learnify. All rights reserved. | Designed with 💙 for learners</p>
+        </div>
+    </footer>
+
     <script src="JavaScript/script.js"></script>
 </body>
 </html>
