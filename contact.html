@@ -3,10 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Contact Us - Shubhashree</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <script src="../script.js"></script>
+    <header>
+        <nav>
+            <p class="logo"><a href="home.html">Learnify</a></p>
+            <ul class="menu">
+                <li>
+                    <select name="chapters" class="chapter-select">
+                        <option value="" selected disabled>Chapters</option>                    
+                        <option value="chapter1">Chapter 1</option>
+                        <option value="chapter2">Chapter 2</option>
+                        <option value="chapter3">Chapter 3</option>
+                        <option value="chapter4">Chapter 4</option>
+                        <option value="chapter5">Chapter 5</option>
+                        <option value="chapter6">Chapter 6</option>
+                        <option value="chapter7">Chapter 7</option>
+                        <option value="chapter8">Chapter 8</option>
+                    </select>
+                    
+                </li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="progress.html">Progress</a></li>
+            </ul>
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="search" class="search-bar" placeholder="Search Lessons">
+                <div class="search-suggestions"></div>
+            </div>
+            
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="contact-container">
+                <h1 class="contact-heading">Contact Us</h1>
+                <p class="contact-subtitle">We'd love to hear from you! Reach out with any questions or feedback.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-content">
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <h2>Send Us a Message</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" selected disabled>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="content">Content Request</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-container">
+                <h2>Contact Information</h2>
+                <div class="contact-info-box">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <p>Baneshwor, Kathmandu</p>
+                            <p>Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Phone Number</h3>
+                            <p><a href="tel:+919876543210">+91 9876 543 210</a></p>
+                            <p><a href="tel:+918012345678">+91 8012 345 678</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email Address</h3>
+                            <p><a href="mailto:info@shubhashree.com">info@shubhashree.com</a></p>
+                            <p><a href="mailto:support@shubhashree.com">support@shubhashree.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 9:00 AM to 6:00 PM</p>
+                            <p>Saturday: 9:00 AM to 1:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="social-contact">
+                        <a href="https://www.facebook.com/ShubhashreeCollege/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/shubhashreecollege/?hl=en" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/shubhashreecollege" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@ShubhashreeCollege" class="youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-container">
+                <h2>Find Us On The Map</h2>
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.7905462296285!2d85.33332017471564!3d27.692867826131288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb191c7109feab%3A0x955c328f3a35391c!2sShubhashree%20College%20of%20Management!5e0!3m2!1sen!2snp!4v1747933466547!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-section">
+                <h3>About Learnify</h3>
+                <p>Your ultimate platform for interactive learning and self-assessment.
+                     We provide comprehensive study materials and engaging quizzes to enhance your learning experience.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/ShubhashreeCollege/" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/shubhashreecollege/?hl=en" class="instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/shubhashreecollege" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@ShubhashreeCollege" class="youtube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="chapter1.html">Start Learning</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Chapters Section -->
+            <div class="footer-section">
+                <h3>Chapters</h3>
+                <ul class="footer-links">
+                    <li><a href="chapter1.html">Introduction to OOP</a></li>
+                    <li><a href="chapter2.html">Classes and Objects</a></li>
+                    <li><a href="chapter3.html">Inheritance</a></li>
+                    <li><a href="chapter4.html">Polymorphism</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <i class="fas fa-phone">📞</i>
+                    <p>+979 9790000</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope">📧</i>
+                    <p>info@learnify.com</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt">📍</i>
+                    <p>Shubhashree College, Baneshwor, Kathmandu</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Learnify. All rights reserved. | Designed with 💙 for learners</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            // For demonstration, we'll show an alert
+            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you soon.`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
 </body>
 </html>
