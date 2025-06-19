@@ -104,6 +104,10 @@ const progressTracker = {
         const progressContainer = document.createElement('div');
         progressContainer.id = 'progress-container';
         progressContainer.className = 'progress-container';
+        let progressTitle = document.createElement('div');
+        progressTitle.id = 'progress-title';
+        progressTitle.innerText = "Progress";
+        progressTitle.style.display = "none"
         
         // Set low progress attribute for visual effects
         if (this.progressData.totalProgress < 30) {
@@ -122,6 +126,14 @@ const progressTracker = {
             </svg>
             <div class="progress-percentage">${this.progressData.totalProgress}%</div>
         `;
+
+        progressCircle.addEventListener("mouseover", ()=>{
+            progressTitle.style.display = "block";
+        })
+        progressCircle.addEventListener("mouseleave",()=>{
+            progressTitle.style.display = "none";
+            
+        })
         
         // Add click event to navigate to progress page
         progressContainer.addEventListener('click', () => {
@@ -129,6 +141,7 @@ const progressTracker = {
         });
         
         progressContainer.appendChild(progressCircle);
+        progressContainer.appendChild(progressTitle);
         
         // Add to page - find appropriate location
         document.body.appendChild(progressContainer);

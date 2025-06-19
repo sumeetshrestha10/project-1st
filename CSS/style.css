@@ -78,12 +78,13 @@ nav {
 
 .chapter-select {
   background-color: var(--accent); /* Same as navbar */
-  color: white; /* White text for better contrast */
+  color: #a9dbffce; /* White text for better contrast */
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   font-family: var(--font);
+  text-decoration: underline;
   cursor: pointer;
 }
 
@@ -247,7 +248,7 @@ nav {
 .letsgo {
   border: none;
   border-radius: 90px;
-  margin-top: 30px;
+  margin-top: 80px;
   padding: 20px 45px;
   font-size: 1.3rem;
   background-color: var(--accent);
@@ -323,7 +324,7 @@ nav {
 .span {
   font-style: italic;
   margin-top: 5px;
-  color: #9f9f9f;
+  color: #ffffff;
   display: none;
   animation: fadeIn 0.5s ease-in-out backwards;
 }
@@ -873,7 +874,7 @@ nav {
 }
 
 .right img {
-  width: 70%;
+  width: 95%;
   height: 62vh;
 }
 
@@ -883,7 +884,7 @@ nav {
   text-align: center;
 }
 .left2 img {
-  width: 70%;
+  width: 95%;
   height: 55vh;
 }
 
@@ -1081,10 +1082,8 @@ nav {
 @media (min-width: 481px) and (max-width: 768px) {
   nav {
     width: 70%;
-    /* height: auto; */
     min-height: 30px;
     padding: 10px 20px;
-    /* flex-wrap: wrap; */
     justify-content: space-evenly;
     align-items: center;
     align-content: center;
@@ -1102,7 +1101,6 @@ nav {
     width: auto;
     margin: 0;
     justify-content: center;
-    /* gap: 20px; */
     flex-wrap: nowrap;
   }
 
@@ -2276,7 +2274,7 @@ nav {
 }
 
 .menu li a.active {
-  color: #f0f0f0;
+  color: var(--hover);
   font-weight: 600;
   position: relative;
 }
@@ -2598,6 +2596,19 @@ nav, .menu, .logo, .search-container, .search-bar, .chapter-select {
     transition: all 0.25s;
 }
 
+#progress-title{
+  color: #000000;
+    position: fixed;
+    top: 70px;
+    right: 2px;
+    width: 58px;
+    height: 20px;
+    border: none;
+    transition: all 0.25;
+    animation: fadeIn 0.8s ease-in-out backwards;
+    transform: scale(1) translateY(-3px);
+    backdrop-filter: blur(7px);
+}
 .progress-circle {
     width: 48px;
     height: 48px;
