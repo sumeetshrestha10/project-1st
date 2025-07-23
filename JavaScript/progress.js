@@ -1,3 +1,5 @@
+
+
 // Progress tracking system
 const progressTracker = {
     // Initialize the progress tracker

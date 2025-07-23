@@ -1,3 +1,5 @@
+
+
 // Quiz related variables
 let correctAnswerCount = 0;
 // Define questions by chapter

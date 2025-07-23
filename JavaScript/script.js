@@ -1,3 +1,8 @@
+const scroll = new LocomotiveScroll({
+    el: document.querySelector('body'),
+    smooth: true
+});
+
 const letsGoBtn = document.querySelector(".letsgo");
 const chapterSelect = document.querySelector(".chapter-select");
 const warningSpan = document.querySelector(".span");
